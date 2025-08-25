@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { Animated, ImageBackground, View } from 'react-native';
 import { styles } from '../styles/global';
 
-const background = require("C:\Users\PICHAU\Desktop\sos-ambiente\assets\images\forest.jpg");
+const background = require('../../assets/images/forest.jpg');
 
 export default function SplashScreen({ navigation }) {
   const fadeAnim = useRef(new Animated.Value(0)).current;
