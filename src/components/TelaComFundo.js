@@ -1,13 +1,18 @@
-import { ImageBackground, ScrollView } from 'react-native';
+import { ImageBackground, ScrollView, View } from 'react-native';
 import { styles } from '../styles/global';
 
-const background = {
-  uri: 'https://th.bing.com/th/id/R.7370231b14332b6bf58ae4e903d7f371?rik=KZMVMZxifQ382A&pid=ImgRaw&r=0'
-};
+const background = require('../../assets/forest.jpg');
 
 export default function TelaComFundo({ children }) {
   return (
-    <ImageBackground source={background} style={styles.background}>
+    <ImageBackground
+      source={background}
+      style={styles.background}
+      imageStyle={styles.backgroundImage}
+      blurRadius={2} // leve desfoque para não disputar com o conteúdo
+    >
+      {/* overlay suave esverdeado para reduzir contraste/saturação */}
+      <View style={styles.dim} />
       <ScrollView contentContainerStyle={styles.container}>
         {children}
       </ScrollView>

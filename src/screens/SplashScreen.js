@@ -1,10 +1,8 @@
 import { useEffect, useRef } from 'react';
-import { Animated, ImageBackground } from 'react-native';
+import { Animated, ImageBackground, View } from 'react-native';
 import { styles } from '../styles/global';
 
-const background = {
-  uri: 'https://th.bing.com/th/id/R.7370231b14332b6bf58ae4e903d7f371?rik=KZMVMZxifQ382A&pid=ImgRaw&r=0'
-};
+const background = require('../../assets/forest.jpg');
 
 export default function SplashScreen({ navigation }) {
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -16,7 +14,13 @@ export default function SplashScreen({ navigation }) {
   }, [fadeAnim, navigation]);
 
   return (
-    <ImageBackground source={background} style={styles.splash}>
+    <ImageBackground
+      source={background}
+      style={styles.splash}
+      imageStyle={styles.backgroundImage}
+      blurRadius={2}
+    >
+      <View style={styles.dim} />
       <Animated.Text style={[styles.splashText, { opacity: fadeAnim }]}>
         S.O.S Ambiente
       </Animated.Text>
