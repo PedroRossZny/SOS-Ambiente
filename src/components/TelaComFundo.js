@@ -1,7 +1,7 @@
 import { ImageBackground, ScrollView, View } from 'react-native';
 import { styles } from '../styles/global';
 
-const background = require('../../assets/images/forest.jpg');
+const background = require('assets/images/forest.jpg');
 
 export default function TelaComFundo({ children }) {
   return (
