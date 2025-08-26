@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { Alert, Text, TouchableOpacity } from 'react-native';
 import TelaComFundo from '../components/TelaComFundo';
 import { useAppState } from '../context/AppState';
 import { styles } from '../styles/global';
@@ -11,32 +11,48 @@ const opcoes = [
   { chave: 'bicicleta', texto: 'Usei bicicleta / Caminhei', co2: 0 },
 ];
 
-export default function CarbonoScreen() {
+export default function CarbonoScreen({ navigation }) {
   const { historicoCarbono, setHistoricoCarbono } = useAppState();
-  const [selecionado, setSelecionado] = useState('');
+  const [selecionados, setSelecionados] = useState({}); // { chave: true/false }
+
+  const toggle = (chave) =>
+    setSelecionados((prev) => ({ ...prev, [chave]: !prev[chave] }));
 
   const salvarEmissao = () => {
-    if (!selecionado) return;
-    const opcao = opcoes.find(op => op.chave === selecionado);
-    const registro = { data: new Date().toLocaleDateString(), atividade: opcao.texto, co2: opcao.co2 };
-    setHistoricoCarbono([...historicoCarbono, registro]);
-    setSelecionado('');
-    alert('Registro salvo!');
+    const escolhidos = opcoes.filter((op) => selecionados[op.chave]);
+    if (escolhidos.length === 0) {
+      Alert.alert('Nada selecionado', 'Escolha pelo menos uma opção.');
+      return;
+    }
+
+    const data = new Date().toLocaleDateString();
+    const novos = escolhidos.map((op) => ({
+      data,
+      atividade: op.texto,
+      co2: op.co2,
+    }));
+
+    setHistoricoCarbono((h) => [...h, ...novos]);
+    setSelecionados({});
+    navigation.goBack(); // volta para a tela anterior (Home)
   };
 
   return (
     <TelaComFundo>
       <Text style={styles.subtitle}>Como você se locomoveu hoje?</Text>
 
-      {opcoes.map((op) => (
-        <TouchableOpacity
-          key={op.chave}
-          style={[styles.botao, selecionado === op.chave && styles.selecionado]}
-          onPress={() => setSelecionado(op.chave)}
-        >
-          <Text style={styles.textoBotao}>{op.texto}</Text>
-        </TouchableOpacity>
-      ))}
+      {opcoes.map((op) => {
+        const ativo = !!selecionados[op.chave];
+        return (
+          <TouchableOpacity
+            key={op.chave}
+            style={[styles.botao, ativo && styles.selecionado]}
+            onPress={() => toggle(op.chave)}
+          >
+            <Text style={styles.textoBotao}>{op.texto}</Text>
+          </TouchableOpacity>
+        );
+      })}
 
       <TouchableOpacity style={styles.botao} onPress={salvarEmissao}>
         <Text style={styles.textoBotao}>Salvar</Text>
