@@ -3,8 +3,8 @@ import { createContext, useContext, useMemo, useState } from 'react';
 const AppStateContext = createContext(null);
 
 export function AppStateProvider({ children }) {
-  const [historico, setHistorico] = useState([]);               // ações do usuário
-  const [historicoCarbono, setHistoricoCarbono] = useState([]); // emissões
+  const [historico, setHistorico] = useState([]);               
+  const [historicoCarbono, setHistoricoCarbono] = useState([]); 
 
   const value = useMemo(() => ({
     historico,

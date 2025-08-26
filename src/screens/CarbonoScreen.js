@@ -13,7 +13,7 @@ const opcoes = [
 
 export default function CarbonoScreen({ navigation }) {
   const { historicoCarbono, setHistoricoCarbono } = useAppState();
-  const [selecionados, setSelecionados] = useState({}); // { chave: true/false }
+  const [selecionados, setSelecionados] = useState({}); 
 
   const toggle = (chave) =>
     setSelecionados((prev) => ({ ...prev, [chave]: !prev[chave] }));
@@ -34,7 +34,7 @@ export default function CarbonoScreen({ navigation }) {
 
     setHistoricoCarbono((h) => [...h, ...novos]);
     setSelecionados({});
-    navigation.goBack(); // volta para a tela anterior (Home)
+    navigation.goBack(); 
   };
 
   return (

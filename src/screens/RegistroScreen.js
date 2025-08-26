@@ -30,7 +30,7 @@ export default function RegistroScreen({ navigation }) {
     const registro = { data, acoes: novasAcoes };
 
     setHistorico((h) => [...h, registro]);
-    navigation.goBack(); // volta para a tela anterior (Home)
+    navigation.goBack(); 
   };
 
   return (

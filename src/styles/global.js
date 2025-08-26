@@ -1,25 +1,23 @@
-// src/styles/global.js
+
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  // Fundo base para todas as telas
+
   background: { flex: 1, resizeMode: 'cover' },
 
-  // Estilo aplicado na prop imageStyle do ImageBackground
   backgroundImage: {
     resizeMode: 'cover',
-    // se quiser deixar a foto ainda mais discreta sem depender do overlay:
-    // opacity: 0.9,
+
   },
 
-  // Overlay esverdeado suave para não “gritar” com o conteúdo
+
   dim: {
     position: 'absolute',
     top: 0, left: 0, right: 0, bottom: 0,
-    backgroundColor: 'rgba(12, 24, 12, 0.38)', // ajuste 0.28–0.45 conforme preferir
+    backgroundColor: 'rgba(12, 24, 12, 0.38)', 
   },
 
-  // Splash
+
   splash: { flex: 1, justifyContent: 'center', alignItems: 'center' },
   splashText: {
     fontSize: 40,
@@ -29,7 +27,7 @@ export const styles = StyleSheet.create({
     textShadowRadius: 10,
   },
 
-  // Layout comum
+
   container: {
     flexGrow: 1,
     justifyContent: 'center',
@@ -37,7 +35,7 @@ export const styles = StyleSheet.create({
     paddingBottom: 50,
   },
 
-  // Textos
+
   title: {
     fontSize: 30,
     fontWeight: 'bold',
@@ -62,7 +60,7 @@ export const styles = StyleSheet.create({
   },
   data: { color: '#fff', fontWeight: 'bold' },
 
-  // Botões e estados
+
   botao: {
     backgroundColor: 'rgba(255,255,255,0.85)',
     padding: 15,
@@ -81,7 +79,7 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
-  // Cards/itens de histórico
+
   itemHistorico: {
     backgroundColor: 'rgba(0,0,0,0.3)',
     borderRadius: 10,
@@ -89,7 +87,7 @@ export const styles = StyleSheet.create({
     marginVertical: 8,
   },
 
-  // Inputs e resultados
+
   input: {
     borderWidth: 1,
     borderColor: '#fff',
