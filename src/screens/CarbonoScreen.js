@@ -12,7 +12,7 @@ const opcoes = [
 ];
 
 export default function CarbonoScreen({ navigation }) {
-  const { historicoCarbono, setHistoricoCarbono } = useAppState();
+  const { setHistoricoCarbono } = useAppState();
   const [selecionados, setSelecionados] = useState({}); 
 
   const toggle = (chave) =>

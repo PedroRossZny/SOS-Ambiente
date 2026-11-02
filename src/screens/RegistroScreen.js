@@ -5,7 +5,7 @@ import { useAppState } from '../context/AppState';
 import { styles } from '../styles/global';
 
 export default function RegistroScreen({ navigation }) {
-  const { historico, setHistorico } = useAppState();
+  const { setHistorico } = useAppState();
   const [acoes, setAcoes] = useState({
     reciclou: false,
     economizouEnergia: false,
