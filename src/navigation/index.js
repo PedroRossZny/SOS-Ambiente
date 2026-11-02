@@ -22,7 +22,7 @@ export default function Navigation() {
       <Stack.Screen name="Splash" component={SplashScreen} options={{ headerShown: false }} />
       <Stack.Screen name="Início" component={HomeScreen} />
       <Stack.Screen name="Registro" component={RegistroScreen} />
-      <Stack.Screen name="Historico" component={HistoricoScreen} />
+      <Stack.Screen name="Historico" component={HistoricoScreen} options={{ title: 'Histórico' }} />
       <Stack.Screen name="Dicas" component={DicasScreen} />
       <Stack.Screen name="Carbono" component={CarbonoScreen} />
       <Stack.Screen name="Histórico de Carbono" component={HistoricoCarbonoScreen} />

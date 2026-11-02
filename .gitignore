@@ -9,3 +9,17 @@ yarn-debug.log*
 yarn-error.log*
 .DS_Store
 Thumbs.db
+desktop.ini
+expo-env.d.ts
+
+# local env files
+.env
+.env*.local
+
+# signing keys
+*.jks
+*.p8
+*.p12
+*.key
+*.pem
+*.mobileprovision
